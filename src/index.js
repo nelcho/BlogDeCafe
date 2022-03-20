@@ -1,15 +1,17 @@
 import _ from 'lodash';
-import "@css/style.css";
-import "@sass/style.scss";
-import "@img/webpack-logo.png";
-
-
-function component() {
-    const element = document.createElement('div');
-  
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
+import "@css/normalize.css";
+import "@css/styles.css";
+import "@js/modernizr.js";
+import "@img/banner.jpg";
+import "@img/banner.webp";
+import "@img/blog1.jpg";
+import "@img/blog1.webp";
+import "@img/blog2.jpg";
+import "@img/blog2.webp";
+import "@img/blog3.jpg";
+import "@img/blog3.webp";
+import "@img/contacto.jpg";
+import "@img/curso1.jpg";
+import "@img/curso2.jpg";
+import "@img/curso3.jpg";
+import "@img/nosotros.jpg";

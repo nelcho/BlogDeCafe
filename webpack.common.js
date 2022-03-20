@@ -57,10 +57,32 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       inject: true,
-      template: "./src/index.html",
-      title: "Plantilla Base WebPack",
-      filename: "./index.html",
-      
+      filename: "index.html",
+      template: "./src/index.html"
+    }),
+    
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: "nosotros.html",
+      template: "./src/nosotros.html"
+    }),
+
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: "cursos.html",
+      template: "./src/cursos.html"
+    }),
+
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: "contacto.html",
+      template: "./src/contacto.html"
+    }),
+
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: "entrada.html",
+      template: "./src/entrada.html"
     }),
     
     new MiniCssExtractPlugin({

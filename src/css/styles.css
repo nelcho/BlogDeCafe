@@ -1,0 +1,340 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+    --primario: #784D3C;
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris: #e1e1e1;
+}
+
+html {
+    box-sizing: border-box; /* Ayuda a controlar la dificultad de manejar el Box-Model y hace que el padding, el border y el margin no afecten los elementos */
+    font-size: 62.5%; /* Permite trabajar adecuadamente en medidas "rem" 1rem = 10px */
+}
+
+*, *:before, *:after { /* Ayuda a controlar la dificultad de manejar el Box-Model y esta catalogado como una de las mejores practicas en css */
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+
+
+/* Globales */
+
+.contenedor {
+    max-width: 120rem; /* Le da un ancho maximo al contenedor */
+    width: 90%; /* Hace que en dispositivos pequeños cuando no entra a funcionar el max-width, se tome maximo el 90% del espacio para mostrar contenido, de esa manera no se pegado al limite */
+    width: min(90%, 120rem); /* Hace lo mismo que las dos lineas de arriba pero en una sola linea */
+    margin: 0 auto; /* Permite centrar los contenidos en el contenedor */
+}
+
+a {
+    text-decoration: none; /* Elimina la linea en los enlaces */
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2; /* Configura el interalineado de los textos */
+}
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.2rem;
+}
+
+h4 {
+    font-size: 2.8rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+
+/* Utilidades */
+
+.no-margin {
+    margin: 0; /* Elimina el margin en los contenidos */
+}
+
+.no-padding {
+    padding: 0; /* Elimina el padding en los contenidos */
+}
+
+.centrar-texto {
+    text-align: center;
+}
+
+
+
+
+
+/* Index.html */
+
+/* Header */
+
+.webp .header { /* Si el navegador soporta webp carga la siguiente imagen */
+    background-image: url(../assets/img/banner.webp); /* Ubica una imagen como fondo del contenedor */
+}
+
+.no-webp .header { /* Si el navegador no soporta webp carga la siguiente imagen */
+    background-image: url(../assets/img/banner.jpg); /* Ubica una imagen como fondo del contenedor */
+}
+
+.header {
+    height: 60rem; /* especifica la altura del contenido de la imagen */
+    background-size: cover; /* Hace que la imagen ocupe todo el espacio disponible del contenedor */
+    background-repeat: no-repeat; /* Hace que no se repita la imagen dentro del espacio del navegador */
+    background-position: center center; /* Hace que la imagen se centre tanto vertical como horizontalmente cuando se utiliza el responsive (suele utilizarse junto al cover) */
+}
+
+.header__texto {
+    text-align: center;
+    color: var(--blanco);
+    margin-top: 5rem;
+}
+
+@media (min-width: 768px) { /* Esta parte maneja la forma en que se centra el texto en dispositivos pequeños */
+    .header__texto {
+        margin-top: 15rem;
+    }
+}
+
+.barra {
+    padding-top: 4rem; /* Separa los elementos de la barra en 4renm del borde superior del navegador */
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between; /* Organiza los elementos de izquierda a derecha dejando un espacio en medio */
+        align-items: center; /* Organiza los elemetos verticalmente en este caso por el centro */
+    }
+}
+
+.logo { /* Esta parte maneja la diferencia de grosores en las letras del logo junto con logo__nombre y logo__bold */
+    color: var(--blanco);
+}
+
+.logo__nombre {
+    font-weight: 400;
+}
+
+.logo__bold {
+    font-weight: 700;
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+
+
+/* Main - Contenido Principal */
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Configura la distribucion del contenedor en dos columnas dividiendo 3 fracciones en una de dos y una de uno */
+        column-gap: 4rem; /* Le da separacion a las columnas */
+    }
+}
+
+/* Blog */
+
+.entrada {
+    border-bottom: 1px solid var(--gris); /* configura un borde inferior al article para mostrar una linea de separacion */
+    margin-bottom: 2rem; /* Da un margen de separacion a las entradas para poder ver el borde */
+}
+
+.entrada:last-of-type { /* Permite seleccionar el ultimo article */
+    border: none; /* Elimina el borde */
+    margin-bottom: 0; /* Elimina el margen */
+}
+
+.boton {
+    display: block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center; /* Centra el texto del boton */
+    padding: 1rem 3rem; /* Engruesa el ancho del boton en 1rem arriba y abajo y en 3rem a la derecha y a la izquierda */
+    font-size: 1.8rem;
+    text-transform: uppercase; /* Cambia el texto a mayusculas */
+    font-weight:700; /* Cambia el grosor del texto dejando como negrilla */
+    margin-bottom: 2rem; /* Da separacion inferior al boton de forma que crea un espacio en la parte inferior del boton */
+    border: none;
+}
+
+.boton:hover {
+    cursor: pointer; /* Le da al boton la capacidad de mostrar el icono de mano */
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block; /* hace que el boton tome un tamaño adecuado en pantallas grandes */
+    }
+}
+
+.boton--primario {
+    background-color: var(--negro);
+}
+
+/* Sidebar */
+
+.boton--secundario {
+    background-color: var(--primario);
+}
+
+.cursos {
+    list-style: none; /* Elimina las viñetas en el li */
+}
+
+.widget-curso {
+    border-bottom: 1px solid var(--gris); /* configura un borde inferior al aside para mostrar una linea de separacion */
+    margin-bottom: 2rem; /* Da un margen de separacion a las entradas para poder ver el borde */
+}
+
+.widget-curso:last-of-type { /* Permite seleccionar el ultimo li */
+    border: none; /* Elimina el borde */
+    margin-bottom: 0; /* Elimina el margen */
+}
+
+.widget-curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight:700; /* Cambia el grosor del texto dejando como negrilla */
+}
+
+.widget-curso__info {
+    font-weight:400;
+}
+
+.widget-curso__label,
+.widget-curso__info {
+    font-size: 2rem;
+}
+
+
+
+/* Footer */
+
+.footer {
+    background-color: var(--negro);
+    padding-bottom: 3rem; /* Hace que se genere un espacio (engorde) del elemento de 3rem a izquierda, derecha, arriba y abajo */
+    margin-top: 4rem; /* Genera una margen superior de 4rem que separa el footer del contenido del main */
+}
+
+
+
+
+
+/* Nosotros.html */
+
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        display: flex;
+        justify-content: space-between; /* hace que el contenido se aliste para tomar una medida de separacion entre columnas */
+    }
+
+    .sobre-nosotros__imagen,
+    .sobre-nosotros__texto { /* Hace que cada uno de los elementos tome el 50% del espacio disponible en el contenedor */
+        flex-basis: calc(50% - 1rem); /* hace que el contenido trabaje en columnas de un porcentaje determinado y da la medida de la separacion entre ellas */
+        align-items: center; /* Organiza los elementos verticalmente en este caso por el centro */
+    }
+}
+
+
+
+
+
+/* Cursos.html */
+
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+
+@media (min-width: 768px) {
+    .curso {
+        display:grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2rem;
+    }
+}
+
+.curso:last-of-type { /* Permite seleccionar el ultimo article */
+    border: none; /* Elimina el borde */
+    margin-bottom: 0; /* Elimina el margen */
+}
+
+
+
+
+
+/* Contacto.html */
+
+.contacto-bg {
+    background-image: url(../assets/img/contacto.jpg); /* Le añade al div una imagen de fondo */
+    height: 40rem; /* Para poder ver la imagen se debe dar un alto a la imagen */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+/* Formulario */
+
+.formulario {
+    background-color: Var(--blanco);
+    margin: -5rem auto 0 auto; /* El valor negativo en un margin sirve para ir en la direccion contraria, en este caso hacia arriba */
+    width: 95%;
+    padding: 5rem;
+}
+
+.campo {
+    display: flex;
+    margin-bottom: 2rem; /* Le da separacion a los campos con el valor deseado */
+}
+
+.campo__label {
+    flex: 0 0 9rem; /* Le da a los label una alineacion y un tamaño */
+}
+
+.campo__field {
+    flex: 1; /* Le da a los field un factor de crecimiento que ocupa el resto del espacio del contenedor */
+    border: 1px solid var(--gris);
+}
+
+.campo__field--textarea {
+    height: 20rem; /* Da una altura al textarea de 20rem */
+    resize: none; /* Hace que no aparezca la opcion para cambiar el tamaño del texarea */
+}
+
+.sombra { /*Se crea esta clase para generar una sombra a los elementos que deseamos utilizar con sombra*/
+    box-shadow: 0px 1.5px 30px -2px rgba(0,0,0,0.77);
+    background-color: var(--blanco);
+    /*padding: 2rem; /* Se da padding para darle un borde alrededor del main*/
+    /*border-radius: 1rem;*/
+}
